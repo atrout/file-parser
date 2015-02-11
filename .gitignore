@@ -1,0 +1,7 @@
+logs
+project/project
+project/target
+project/boot
+target
+.DS_Store
+.history
