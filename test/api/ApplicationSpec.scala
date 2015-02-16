@@ -89,6 +89,23 @@ class ApplicationSpec extends PlaySpecification {
       val upload = route(request).get
 
       status(upload) must equalTo(OK)
+      contentAsString(upload) must contain ("File parse result")
+    }
+
+    "return json for file upload if headers request json" in new WithApplication {
+      val file = new File(testFile)
+      val tempFile = TemporaryFile(file)
+      val part = FilePart("textFile", "wordfile.txt", Some("text/plain"), tempFile)
+      val files = Seq[FilePart[TemporaryFile]](part)
+      val multipartBody = MultipartFormData(Map[String, Seq[String]](), files, Seq[BadPart](), Seq[MissingFilePart]())
+      val request = FakeRequest(POST, "/")
+        .withMultipartFormDataBody(multipartBody)
+        .withHeaders(("Accept", "application/json"))
+
+      val upload = route(request).get
+
+      status(upload) must equalTo(OK)
+      contentType(upload) must beSome.which(_ == "application/json")
     }
 
     // bad request
