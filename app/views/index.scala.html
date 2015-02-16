@@ -1,12 +1,15 @@
 @import helper._
 
-@(message: String)
+@main("Upload a file") {
 
-@main("Welcome to Play") {
+	<h1>File parsing API</h1>
+	<p>
+		Upload a text file. 
+	</p>
 
   @form(action = routes.Application.upload, 'enctype -> "multipart/form-data") {
       
-    <input type="file" name="picture">
+    <input type="file" name="textFile">
     
     <p>
         <input type="submit">

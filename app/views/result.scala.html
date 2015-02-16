@@ -1,0 +1,22 @@
+@import helper._
+
+@(message: String, wordMap: Map[String, Int])
+
+@main("File parse result") {
+
+	<h1>@message</h1>
+	
+	<table>
+		<tr>
+			<th>Word</th>
+			<th>Count</th>
+		</tr>
+		@wordMap.map { word =>
+			<tr>
+				<td>@word._1</td>
+				<td>@word._2</td>
+			</tr>
+		}
+	</table>
+
+}
