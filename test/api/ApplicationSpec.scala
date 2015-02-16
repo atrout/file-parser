@@ -21,8 +21,9 @@ class ApplicationSpec extends PlaySpecification {
 
   val testFile = "test/resources/wordfile.txt"
   
-  // this was taken from this test that I found:
+  // this was taken from a test I found on github:
   // https://github.com/G-Node/GCA-Web/blob/master/test/controller/FigureCtrlTest.scala
+  // AnyContentAsMultipartFormData needs to be converted to Bytes for the upload test to work
   implicit def writeableOf_AnyContentAsMultipartFormData:
     Writeable[AnyContentAsMultipartFormData] = {
       val boundary = "---XXX---"
@@ -52,7 +53,6 @@ class ApplicationSpec extends PlaySpecification {
         val separator = ("--" + boundary + "\r\n").getBytes(charset)
         val body = (text ++ data).foldLeft(Array[Byte]())((r,c) => r ++ separator ++ c)
 
-        //val debug = new String(body.map(_.toChar))
         body ++ separator ++ "--".getBytes(charset)
 
       }, Some(s"multipart/form-data; boundary=$boundary"))
