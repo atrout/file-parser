@@ -4,7 +4,7 @@ File-parser is a simple service that accepts a text file and returns an overall 
 ### Description
 The file-parser service can be used either through a web interface or programmatically. The supported actions are 'GET' and 'POST'. 
 
-The service determines the format of the response based on the headers in the request. If http headers support html, the service it will return an HTML formatted webpage with a file upload form for a GET request. A POST to the service with headers indicating HTML should be returned will result in the parsed file data being returned as HTML.
+The service determines the format of the response based on the headers in the request. In response to a GET request with headers that indicate HTML support, the service will return an HTML formatted webpage with a file upload form. A POST request to the service with html headers (and a file to parse) will return the parsed file data as HTML.
 
 If http headers support JSON, a GET request will return a JSON response:
 ```
@@ -56,5 +56,5 @@ POST a file to be parsed via curl with JSON headers:
 `curl -X POST -F textFile=@wordfile.txt --header "Accept: application/json" http://localhost:9000/`
       
 ### Credits
-* Format of JSON responses based on JSend: http://labs.omniti.com/labs/jsend
-* Code to translate Play AnyContentAsMultipartFormData to Array[Bytes] for the upload tests: https://github.com/G-Node/GCA-Web/blob/master/test/controller/FigureCtrlTest.scala
+* Format of JSON responses based on (JSend)[http://labs.omniti.com/labs/jsend]
+* Code to translate Play AnyContentAsMultipartFormData to Array[Bytes] for the upload tests from (G-Node/GCA-Web)[ https://github.com/G-Node/GCA-Web/blob/master/test/controller/FigureCtrlTest.scala]
