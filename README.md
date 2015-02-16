@@ -2,9 +2,9 @@
 File-parser is a simple service that accepts a text file and returns an overall word count and a break-down of counts for each individual word in the file.
 
 ### Description
-The file-parser service can either be used through a web interface or programmatically. The supported actions are 'GET' and 'POST'. 
+The file-parser service can be used either through a web interface or programmatically. The supported actions are 'GET' and 'POST'. 
 
-The service determines the format of the response based on the headers in the request. If http headers support html, when the service receives a GET request it will return an HTML formatted webpage with a file upload form. When a file is POSTed to the service with headers indicating html should be returned, the result of parsing the file will be returned as HTML.
+The service determines the format of the response based on the headers in the request. If http headers support html, the service it will return an HTML formatted webpage with a file upload form for a GET request. A POST to the service with headers indicating HTML should be returned will result in the parsed file data being returned as HTML.
 
 If http headers support JSON, a GET request will return a JSON response:
 ```
