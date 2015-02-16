@@ -56,5 +56,5 @@ POST a file to be parsed via curl with JSON headers:
 `curl -X POST -F textFile=@wordfile.txt --header "Accept: application/json" http://localhost:9000/`
       
 ### Credits
-* Format of JSON responses based on (JSend)[http://labs.omniti.com/labs/jsend]
-* Code to translate Play AnyContentAsMultipartFormData to Array[Bytes] for the upload tests from (G-Node/GCA-Web)[ https://github.com/G-Node/GCA-Web/blob/master/test/controller/FigureCtrlTest.scala]
+* Format of JSON responses based on [JSend](http://labs.omniti.com/labs/jsend)
+* Code to translate Play AnyContentAsMultipartFormData to Array[Bytes] for the upload tests from [G-Node/GCA-Web]( https://github.com/G-Node/GCA-Web/blob/master/test/controller/FigureCtrlTest.scala)
