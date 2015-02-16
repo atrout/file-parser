@@ -4,7 +4,7 @@ File-parser is a simple service that accepts a text file and returns an overall 
 ### Description
 The file-parser service can be used either through a web interface or programmatically. The supported actions are 'GET' and 'POST'. 
 
-The service determines the format of the response based on the headers in the request. In response to a GET request with headers that indicate HTML support, the service will return an HTML formatted webpage with a file upload form. A POST request to the service with html headers (and a file to parse) will return the parsed file data as HTML.
+The service determines the format of the response based on the headers in the request. In response to a GET request with headers that indicate HTML support, the service will return an HTML formatted webpage with a file upload form. A POST request to the service with HTML headers (and a file to parse) will return the parsed file data as HTML.
 
 If http headers support JSON, a GET request will return a JSON response:
 ```
