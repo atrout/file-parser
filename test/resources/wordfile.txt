@@ -1,10 +1,2 @@
-apple
-bug
-bee
-fly
-grub
-morgue
-please
-stuff
-apple
-apple
+apple bug bee fly grub morgue
+please stuff apple apple
